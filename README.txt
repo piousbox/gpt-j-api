@@ -7,7 +7,7 @@
 
 An API to interact with the GPT-J language model and variants! You can use and test the model in two different ways:
 
-* Streamlit web app at http://api.vicgalle.net:8000/ 
+* Streamlit web app at http://api.vicgalle.net:8000/
 * The proper API, documented at http://api.vicgalle.net:5000/docs
 
 ## Open API endpoints 🔓
@@ -44,8 +44,8 @@ print(response)
 
 ```python
 import requests
-payload = { 
-    "sequence" : "The movie started slow, but in the end was absolutely amazing!", 
+payload = {
+    "sequence" : "The movie started slow, but in the end was absolutely amazing!",
     "labels" : "positive,neutral,negative"}
 response = requests.post("http://api.vicgalle.net:5000/classify", params=payload).json()
 print(response)
@@ -103,3 +103,13 @@ Special thanks to the following people, who sponsor this project! <3
 ## Acknowledgements ✨
 
 Many thanks to the support of the TPU Research Cloud, https://sites.research.google/trc/
+
+-=-----
+
+= Troubleshoot =
+
+== AttributeError: module 'jax.random' has no attribute 'KeyArray' while fine tuning ==
+
+From: https://github.com/kingoflolz/mesh-transformer-jax/issues/221
+
+  Chex 0.1.3 doesn't support JAX 0.2.12. You need to downgrade to Chex 0.1.2:
